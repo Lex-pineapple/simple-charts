@@ -43,8 +43,8 @@ export const CustomDot = ({cx, cy, type}: TCustomDot) => {
     strokeWidth={2}
   />)
   return <circle
-    cx={cx}
-    cy={cy}
+  cx={0}
+  cy={0}
     {...DotData[type]}
   />
 }

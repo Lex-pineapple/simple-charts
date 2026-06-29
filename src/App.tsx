@@ -4,8 +4,10 @@ import './App.css'
 function App() {
 
   return (
-    <section id="center">
-      <Chart />
+    <section className="main-wrapper">
+      <div className='chart-wrapper'>
+        <Chart />
+      </div>
     </section>
   )
 }

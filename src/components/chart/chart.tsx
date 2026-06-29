@@ -11,20 +11,23 @@ import {
 import { CustomDot } from "~components/custom-dot";
 import { CustomTooltip } from "~components/custom-tooltip";
 import { data } from "~consts/demo-data";
+import './chart.css';
+import { CustomActiveDot } from "~components/custom-active-dot";
 
 export const Chart = () => {
   return (
     <ResponsiveContainer
-      width="100%"
+      width="70%"
       height={340}
+      className="chart-container"
     >
       <ComposedChart
         data={data}
         margin={{
           left: 10,
           right: 20,
-          top: 20,
-          bottom: 10,
+          top: 40,
+          bottom: -28,
         }}
       >
         <XAxis
@@ -52,7 +55,7 @@ export const Chart = () => {
         <YAxis
           hide
           yAxisId={4}
-          domain={['dataMin', "dataMax"]}
+          domain={['dataMin', "dataMax + 10"]}
         />
         <Tooltip
           content={<CustomTooltip />}
@@ -65,13 +68,7 @@ export const Chart = () => {
           stroke="#FFE34C"
           strokeWidth={2}
           fillOpacity={1}
-          dot={<CustomDot cx={0} cy={0} type={"yellow"} />}
-          activeDot={{
-            r: 16,
-            fill: "rgb(255, 242, 179, .18)",
-            stroke: "#169017",
-            strokeWidth: 0,
-          }}
+          activeDot={<CustomActiveDot color="#FFF1A3" />} 
         />
 
         <Bar
@@ -88,14 +85,9 @@ export const Chart = () => {
           type="monotone"
           dataKey="roi"
           stroke="#169017"
-          strokeWidth={3}
-          dot={<CustomDot cx={0} cy={0} type={"green"} />}
-          activeDot={{
-            r: 16,
-            fill: "rgba(22,144,23,.18)",
-            stroke: "#169017",
-            strokeWidth: 0,
-          }}
+          strokeWidth={6}
+          dot={false}
+          activeDot={<CustomActiveDot color="#1A8E15" />} 
         />
 
         <Line
@@ -105,7 +97,7 @@ export const Chart = () => {
           strokeWidth={3}
           dot={<CustomDot cx={0} cy={0} type={"purple"} />}
           activeDot={{
-            r: 16,
+            r: 20,
             fill: "rgba(160,28,248,.18)",
             stroke: "#A01CF8",
             strokeWidth: 0,
