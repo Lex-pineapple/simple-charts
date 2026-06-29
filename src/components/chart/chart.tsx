@@ -10,12 +10,17 @@ import {
 } from "recharts";
 import { CustomDot } from "~components/custom-dot";
 import { CustomTooltip } from "~components/custom-tooltip";
-import { data } from "~consts/demo-data";
 import './chart.css';
 import { CustomActiveDot } from "~components/custom-active-dot";
 import { useState } from "react";
+import type { ChartData } from "recharts/types/state/chartDataSlice";
 
-export const Chart = () => {
+type TChart = {
+  data: ChartData<unknown>;
+  legends: Record<string, string>;
+}
+
+export const Chart = ({data, legends}: TChart) => {
   const [hoveredLine, setHoveredLine] = useState(false);
   const handleChartMouseMove = () => {
     setHoveredLine(true);
@@ -39,6 +44,7 @@ export const Chart = () => {
           top: 40,
           bottom: -28,
         }}
+        style={{cursor: "pointer"}}
       >
         <XAxis
           dataKey="date"
@@ -68,7 +74,7 @@ export const Chart = () => {
           domain={['dataMin', "dataMax + 10"]}
         />
         <Tooltip
-          content={CustomTooltip}
+          content={<CustomTooltip active={false} payload={[]} coordinate={undefined} accessibilityLayer={false} activeIndex={undefined} legends={legends} />}
           cursor={false}
         />
         <Area

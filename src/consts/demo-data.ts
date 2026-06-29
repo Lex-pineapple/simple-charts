@@ -1,4 +1,4 @@
-type DataPoint = {
+export type DataPoint = {
   date: string;
   value: number;
 };
@@ -35,7 +35,7 @@ export const conversionsInfo = [
     { date: "14.06.2026", value: 90 },
   ]
 
-const combineByDate = (datasets: Record<string, DataPoint[]>) => {
+export const combineByDate = (datasets: Record<string, DataPoint[]>) => {
     const result = new Map<string, Record<string, number | string>>();
 
   for (const [key, data] of Object.entries(datasets)) {
