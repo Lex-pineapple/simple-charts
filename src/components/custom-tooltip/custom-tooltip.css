@@ -1,0 +1,37 @@
+.tooltip {
+    background: white;
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.18),
+        0 2px 8px rgba(0,0,0,.12);
+
+    font-family: Inter;
+    min-width: 230px;
+}
+
+.tooltip-date {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tooltip-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.tooltip-row strong {
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.bullet {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
