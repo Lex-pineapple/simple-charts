@@ -16,12 +16,12 @@ type DataPoint = {
 
 Установить зависимости:
 ```
-npm install
+yarn install
 ```
 
 Запуск:
 ```
-npm run dev
+yarn run dev
 ```
 
 ## Как поменять данные?
