@@ -13,8 +13,16 @@ import { CustomTooltip } from "~components/custom-tooltip";
 import { data } from "~consts/demo-data";
 import './chart.css';
 import { CustomActiveDot } from "~components/custom-active-dot";
+import { useState } from "react";
 
 export const Chart = () => {
+  const [hoveredLine, setHoveredLine] = useState(false);
+  const handleChartMouseMove = () => {
+    setHoveredLine(true);
+  };
+  const handleChartMouseExit = () => {
+    setHoveredLine(false);
+  };
   return (
     <ResponsiveContainer
       width="70%"
@@ -23,6 +31,8 @@ export const Chart = () => {
     >
       <ComposedChart
         data={data}
+        onMouseEnter={handleChartMouseMove}
+        onMouseLeave={handleChartMouseExit}
         margin={{
           left: 10,
           right: 20,
@@ -58,7 +68,7 @@ export const Chart = () => {
           domain={['dataMin', "dataMax + 10"]}
         />
         <Tooltip
-          content={<CustomTooltip />}
+          content={CustomTooltip}
           cursor={false}
         />
         <Area
@@ -83,11 +93,12 @@ export const Chart = () => {
         <Line
           yAxisId={3}
           type="monotone"
+          // strokeWidth={hoveredLine ? 8 : 2}
           dataKey="roi"
           stroke="#169017"
-          strokeWidth={6}
           dot={false}
-          activeDot={<CustomActiveDot color="#1A8E15" />} 
+          activeDot={<CustomActiveDot color="#1A8E15" />}
+          className={`changing-line ${hoveredLine ? "wide" : "small"}`}
         />
 
         <Line

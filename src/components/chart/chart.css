@@ -1,4 +1,13 @@
 .chart-container {
-  /* background: #fce0e3; */
   border: 1px solid #dbd0d0;
+}
+
+.changing-line.wide path {
+  stroke-width: 8;
+  transition: stroke-width 0.3s ease-in;
+}
+
+.changing-line.small path {
+  stroke-width: 2;
+  transition: stroke-width 0.3s ease-in;
 }

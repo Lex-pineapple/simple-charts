@@ -1,11 +1,12 @@
-import type { TooltipProps } from "recharts";
+import type { TooltipContentProps } from "recharts";
 import './custom-tooltip.css';
+import type { NameType, ValueType } from "recharts/types/component/DefaultTooltipContent";
 
 export const CustomTooltip = ({
   active,
   payload,
   label,
-}: TooltipProps<number, string>) => {
+}: TooltipContentProps<ValueType, NameType>) => {
   if (!active || !payload?.length) return null;
 
   const map = Object.fromEntries(
